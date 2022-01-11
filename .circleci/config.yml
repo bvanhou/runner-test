@@ -6,6 +6,6 @@ workflows:
 jobs:
   runner:
     machine: true
-    resource_class: ci-namespace/aws-ec2-medium
+    resource_class: ci-namespace/azure-vm-medium
     steps:
       - run: echo "Hi I'm on Runners!"
