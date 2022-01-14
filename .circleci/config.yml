@@ -6,6 +6,6 @@ workflows:
 jobs:
   runner:
     machine: true
-    resource_class: ci-namespace/azure-vm-medium
+    resource_class: ci-namespace/gcp-cc-medium
     steps:
-      - run: echo "Hi I'm on Runners!"
+      - run: echo "Hi I'm on Google!"
