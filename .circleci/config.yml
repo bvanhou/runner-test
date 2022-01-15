@@ -3,34 +3,9 @@ workflows:
   testing:
     jobs:
       - k8s
-      - azure
-      - ec2
-      - ecs
-      - gcp
-      
 jobs:
   k8s:
     machine: true
     resource_class: ci-namespace/local-k8s-medium
     steps:
       - run: echo "Hi I'm on Kubernetes!"
-  azure:
-    machine: true
-    resource_class: ci-namespace/azure-vm-medium
-    steps:
-      - run: echo "Hi I'm on Azure!"
-  ec2:
-    machine: true
-    resource_class: ci-namespace/aws-ec2-medium
-    steps:
-      - run: echo "Hi I'm on AWS Elastic Cloud Compute!"
-  ecs:
-    machine: true
-    resource_class: ci-namespace/aws-ecs-medium
-    steps:
-      - run: echo "Hi I'm on AWS Elastic Container Service!"
-  gcp:
-    machine: true
-    resource_class: ci-namespace/gcp-cc-medium
-    steps:
-      - run: echo "Hi I'm on AWS Elastic Container Service!"
