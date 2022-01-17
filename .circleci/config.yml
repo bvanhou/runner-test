@@ -9,4 +9,4 @@ jobs:
     machine: true
     resource_class: ci-namespace/aws-ec2-medium-windows
     steps:
-      - run: echo "Hi I'm on Windows! in AWS Elastic Cloud Compute !"
+      - run: Write-Host "Hi I'm on Windows! in AWS Elastic Cloud Compute !"
