@@ -11,15 +11,20 @@ jobs:
     machine: true
     resource_class: ci-namespace/aws-ec2-medium-windows
     steps:
-      - run: 'Write-Host ''Hello, I am on Windows! in AWS Elastic Cloud Compute'''
+      - run: 
+          command: 'Write-Host ''Hello, I am on Windows! in Google Cloud Compute'''
+          shell: powershell.exe
   Azure:
     machine: true
     resource_class: ci-namespace/azure-vm-medium-windows
     steps:
-      - run:  'Write-Host ''Hello, I am on Windows! in Azure Virtual Machines'''
-
+      - run: 
+          command: 'Write-Host ''Hello, I am on Windows! in Google Cloud Compute'''
+          shell: powershell.exe
   GCP:
     machine: true
     resource_class: ci-namespace/gcp-cc-medium-windows
     steps:
-      - run: 'Write-Host ''Hello, I am on Windows! in Google Cloud Compute'''
+      - run: 
+          command: 'Write-Host ''Hello, I am on Windows! in Google Cloud Compute'''
+          shell: powershell.exe
