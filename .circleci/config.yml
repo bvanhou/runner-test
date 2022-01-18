@@ -1,12 +1,25 @@
 version: 2.1
 workflows:
-  testing:
+  windows:
     jobs:
-      - ec2
+      - AWS
+      - Azure
+      - GCP
       
 jobs:
-  ec2:
+  AWS:
     machine: true
     resource_class: ci-namespace/aws-ec2-medium-windows
     steps:
-      - run: Write-Host "Hi I'm on Windows! in AWS Elastic Cloud Compute !"
+      - run: 'Write-Host ''Hello, I am on Windows! in AWS Elastic Cloud Compute'''
+  Azure:
+    machine: true
+    resource_class: ci-namespace/azure-vm-medium-windows
+    steps:
+      - run:  'Write-Host ''Hello, I am on Windows! in Azure Virtual Machines'''
+
+  GCP:
+    machine: true
+    resource_class: ci-namespace/gcp-cc-medium-windows
+    steps:
+      - run: 'Write-Host ''Hello, I am on Windows! in Google Cloud Compute'''
