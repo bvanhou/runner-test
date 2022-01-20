@@ -1,14 +1,40 @@
 version: 2.1
 workflows:
-  testing:
+  docker:
     jobs:
       - k8s
       - azure
       - ec2
       - ecs
       - gcp
+  windows:
+    jobs:
+      - aws-windows
+      - azure-windows
+      - gcp-windows
       
 jobs:
+  aws-windows:
+    machine: true
+    resource_class: ci-namespace/aws-ec2-medium-windows
+    steps:
+      - run: 
+          command: 'Write-Host ''Hello, I am on Windows! in Google Cloud Compute'''
+          shell: powershell.exe
+  azure-windows:
+    machine: true
+    resource_class: ci-namespace/azure-vm-medium-windows
+    steps:
+      - run: 
+          command: 'Write-Host ''Hello, I am on Windows! in Google Cloud Compute'''
+          shell: powershell.exe
+  gcp-windows:
+    machine: true
+    resource_class: ci-namespace/gcp-cc-medium-windows
+    steps:
+      - run: 
+          command: 'Write-Host ''Hello, I am on Windows! in Google Cloud Compute'''
+          shell: powershell.exe      
   k8s:
     machine: true
     resource_class: ci-namespace/local-k8s-medium
