@@ -10,5 +10,5 @@ jobs:
     resource_class: ci-namespace/aws-lambda-medium
     steps:
       - run:
-          command: echo "Hi I'm on AWS Lambda!"
-          shell: /bin/sh
+          command: print("Hi I'm on AWS Lambda with Python!")
+          shell: /usr/bin/python
