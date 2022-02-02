@@ -9,4 +9,6 @@ jobs:
     machine: true
     resource_class: ci-namespace/aws-lambda-medium
     steps:
-      - run: echo "Hi I'm on AWS Lambda!"
+      - run:
+          command: echo "Hi I'm on AWS Lambda!"
+          shell: /bin/sh
