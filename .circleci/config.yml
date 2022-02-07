@@ -9,6 +9,4 @@ jobs:
     machine: true
     resource_class: ci-namespace/aws-lambda-medium
     steps:
-      - run:
-          command: print("Hi I'm on AWS Lambda with Python!")
-          shell: /usr/bin/python
+      - run: echo "Hi I'm on AWS Lambda!"
