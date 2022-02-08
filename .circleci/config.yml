@@ -8,4 +8,4 @@ jobs:
     machine: true
     resource_class: ci-namespace/aws-ecs-medium
     steps:
-      - run: echo "Hi I'm on ECS YAY Runners!"
+      - run: echo "Hi I'm on ECS YAY ok Runners!"
