@@ -1,0 +1,16 @@
+config:
+  target: "https://rohara.eks-dev.sphereci.com/api/v2"
+
+  phases:
+    - duration: 10
+      arrivalRate: 5
+
+scenarios:
+  - name: "Stress Test VM Service"
+    flow:
+      - post:
+          url: "/project/github/bvanhou/runner-test/pipeline"
+          headers:
+            Circle-Token: "b1d364efa8eb7cd801b9d19f19ce2d2f9c8cefe6"
+          json:
+            branch: "loadtest"

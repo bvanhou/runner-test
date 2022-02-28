@@ -2,10 +2,13 @@ version: 2.1
 workflows:
   testing:
     jobs:
-      - runner
+      - vm_service_test
+      # - docker_layer_cache_test
+
 jobs:
-  runner:
-    machine: true
-    resource_class: ci-namespace/aws-ecs-medium
+  vm_service_test: # name of your job
+    machine: true # run on 'VM service' Linux VM
     steps:
-      - run: echo "Hi I'm on ECS YAY Runners!"
+      - run:
+          name: VM Service VM
+          command: hostname -f 
