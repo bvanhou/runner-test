@@ -1,5 +1,5 @@
 config:
-  target: "https://rohara.eks-dev.sphereci.com/api/v2"
+  target: "https://server3-rc.gke.sphereci.com/api/v2"
 
   phases:
     - duration: 10
@@ -9,8 +9,12 @@ scenarios:
   - name: "Stress Test VM Service"
     flow:
       - post:
-          url: "/project/github/bvanhou/runner-test/pipeline"
+          url: "/project/github/benv/runner-test/pipeline"
           headers:
-            Circle-Token: "b1d364efa8eb7cd801b9d19f19ce2d2f9c8cefe6"
+            Circle-Token: "2c4cd966053178db1d4a0b390d88ffd0d4c14250"
           json:
             branch: "loadtest"
+            
+# CircleCI - AWS - Ben - b1d364efa8eb7cd801b9d19f19ce2d2f9c8cefe6
+# CircleCI - AWS - RyanO - 633bb59af197aa12c5fc6a84890bd4260597ff71
+# CircleCI - GHE - RyanO - 2c4cd966053178db1d4a0b390d88ffd0d4c14250
