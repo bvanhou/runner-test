@@ -3,12 +3,11 @@ workflows:
   testing:
     jobs:
       - vm_service_test
-      # - docker_layer_cache_test
 
 jobs:
-  vm_service_test: # name of your job
-    machine: true # run on 'VM service' Linux VM
+  vm_service_test:
+    docker:
+      - image: 'cimg/node:14.10.1' # the primary container, where your job's commands are run
     steps:
-      - run:
-          name: VM Service VM
-          command: hostname -f 
+      - checkout # check out the code in the project directory 470.45 MiB
+      - run: echo "hello world" # run the `echo` command
