@@ -1,13 +1,28 @@
 version: 2.1
-workflows:
-  testing:
-    jobs:
-      - vm_service_test
 
 jobs:
-  vm_service_test:
+  build-tag-deploy:
+    # machine: true
     docker:
-      - image: 'cimg/node:14.10.1' # the primary container, where your job's commands are run
+      - image: registry.com/cimg/base:2021.02-20.04
     steps:
-      - checkout # check out the code in the project directory 470.45 MiB
-      - run: echo "hello world" # run the `echo` command
+      # Checkout the code as the first step.
+      - checkout
+      # Build, Tag, Deploy
+      - setup_remote_docker
+      - run:
+          name: Build
+          command: docker build -t path-circleci-sample-docker-image .
+      - run:
+          name: Tag
+          command: docker tag path-circleci-sample-docker-image $CI_REGISTRY/path/path-circleci-sample-docker-image
+      - run:
+          name: Deploy
+          command: |
+            echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
+            docker push $CI_REGISTRY/path/path-circleci-sample-docker-image
+workflows:
+  build:
+    jobs:
+      - build-tag-deploy:
+          context: sample_context
